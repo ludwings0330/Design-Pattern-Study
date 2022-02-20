@@ -42,6 +42,9 @@ public class WeatherData implements Subject {
                 observers) {
             observer.update(getTemperature(), getHumidity(), getPressure());
         }
+
+        observers.stream()
+                .forEach(o -> o.update(getTemperature(), getHumidity(), getPressure()));
     }
 
     private float getPressure() {
